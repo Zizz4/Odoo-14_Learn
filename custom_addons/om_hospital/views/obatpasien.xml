@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="patient_form_inherit" model="ir.ui.view">
+        <field name="name">hospital.patient.inherited</field>
+        <field name="model">hospital.patient</field>
+        <field name="inherit_id" ref="om_hospital.view_patient_form"/>
+        <field name="arch" type="xml">
+            <field name="gender" position="after">
+                <field name="deskripsi_obat"/>
+            </field>
+        <!--<xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_description">
+            </xpath>--> <!--Gunakan ini apabila sintaks di atas error-->
+        </field>
+    </record>
+
+     <record id="patient_tree_inherit" model="ir.ui.view">
+        <field name="name">hospital.patient.inherited</field>
+        <field name="model">hospital.patient</field>
+        <field name="inherit_id" ref="om_hospital.view_patient_tree"/>
+        <field name="arch" type="xml">
+            <field name="gender" position="after">
+                <field name="deskripsi_obat"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="patient_kanban_inherit" model="ir.ui.view">
+        <field name="name">hospital.patient.inherited</field>
+        <field name="model">hospital.patient</field>
+        <field name="inherit_id" ref="om_hospital.view_patient_kanban"/>
+        <field name="arch" type="xml">
+            <field name="gender" position="after">
+                <field name="deskripsi_obat"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
