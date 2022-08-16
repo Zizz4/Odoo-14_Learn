@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_medicine_kanban" model="ir.ui.view">
+        <field name="name">hospital.medicine.kanban</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <kanban>
+               <field name="id"/>
+                <field name="name"/>
+                <field name="harga"/>
+                <field name="jenis"/>
+                <field name="note"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="harga"/>
+                                    </li>
+                                    <li>
+                                        <field name="jenis"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="medicine_tree" model="ir.ui.view">
+        <field name="name">hospital.medicine.tree</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="harga"/>
+                <field name="jenis"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="medicine_form" model="ir.ui.view">
+        <field name="name">hospital.medicine.form</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group> <!--main group-->
+                        <group>
+                            <field name="name"/>
+                            <field name="harga"/>
+                        </group>
+                        <group>
+                            <field name="jenis"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="medicine_search" model="ir.ui.view">
+        <field name="name">hospital.medicine.search</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <search string="Medicines">   <!-- fitur search-->
+                <field name="name"/>
+                <field name="jenis"/>
+                <separator/>
+                <filter string="Kapsul" name="kapsul" domain="[('jenis', '=', 'kapsul')]"/>
+                <filter string="Tablet" name="tablet" domain="[('jenis', '=', 'tablet')]"/>
+                <filter string="Other" name="other" domain="[('jenis', '=', 'other')]"/>
+                <group expand="1" string="Group By"> <!--Group By-->
+                    <filter string="Jenis" name="jenis" context="{'group_by':'jenis'}"/>
+                    <filter string="Note" name="note" context="{'group_by':'note'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="medicine_action" model="ir.actions.act_window">
+        <field name="name">Medicines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.medicine</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first medicine!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="hospital_root"
+              name="Hospital"
+              sequence="10"/>
+
+    <menuitem id="hospital_medicine_root"
+              name="Medicines"
+              parent="hospital_root"
+              sequence="20"/>
+
+    <menuitem id="hospital_medicine"
+              name="Medicines"
+              parent="hospital_medicine_root"
+              action="medicine_action"
+              sequence="10"/>
+</odoo>
