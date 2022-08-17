@@ -148,4 +148,8 @@
               action="patient_action"
               sequence="10"/>
 
+    <menuitem id="hospital_patient_dewasa"
+              name="Dewasa"
+              parent="hospital_patient"
+              sequence="10"/>
 </odoo>

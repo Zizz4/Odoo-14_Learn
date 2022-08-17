@@ -112,4 +112,11 @@
               parent="hospital_medicine_root"
               action="medicine_action"
               sequence="10"/>
+
+    <menuitem id="hospital_patient_bocah" <!--sub sub menu yang diwariskan di sub menu patients-->
+              name="Bocah"
+              parent="om_hospital.hospital_patient" <!--panggil nama modulenya apabila ingin menampilkan di view yang tidak satu file-->
+              action="medicine_action"
+              sequence="20"/>
+
 </odoo>
