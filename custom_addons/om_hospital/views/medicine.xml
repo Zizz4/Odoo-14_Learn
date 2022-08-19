@@ -86,6 +86,7 @@
             </search>
         </field>
     </record>
+
     <record id="medicine_action" model="ir.actions.act_window">
         <field name="name">Medicines</field>
         <field name="type">ir.actions.act_window</field>
