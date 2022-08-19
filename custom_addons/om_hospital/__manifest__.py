@@ -14,6 +14,7 @@
         'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/medicine.xml',
         'views/obatpasien.xml',
         'views/patient.xml',
